@@ -1,0 +1,2 @@
+# m h  dom mon dow   command
+00,15,30,45 04-22 * * * /home/jjf/src/rssFeeds/runRSS.sh > /tmp/rss.log 2>&1
