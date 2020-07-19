@@ -6,7 +6,9 @@ handle.
 
 I am using Python 3.7.7 on OpenBSD 6.7 release
 
-In addition I installed the pip 3.7 19.1.1.1 package.
+In addition I installed the following packges
+
+* py3-pip 3.7 19.1.1.1
 
 
 ## Dependencies

@@ -50,12 +50,12 @@ DEBUG_EMAIL_ID = conf.getItem(env, 'DEBUG_EMAIL_ID')
 REJECT_EMAIL_ID = conf.getItem(env, 'REJECT_EMAIL_ID')
 SUBJECT_PREFIX = conf.getItem(env, 'SUBJECT_PREFIX')
 FEED = conf.getItem(env, 'FEED')
-print('debug?: ', DEBUG, '\n' \
-      'email?: ', SEND_MAIL, '\n' \
-      'from email id: ', FROM_EMAIL_ID, '\n' \
-      'debug email id: ', DEBUG_EMAIL_ID, '\n' \
-      'reject id: ', REJECT_EMAIL_ID, '\n' \
-      'subj pref: ', SUBJECT_PREFIX, '\n' \
+print('debug?: ', DEBUG, '\n', \
+      'email?: ', SEND_MAIL, '\n', \
+      'from email id: ', FROM_EMAIL_ID, '\n', \
+      'debug email id: ', DEBUG_EMAIL_ID, '\n', \
+      'reject id: ', REJECT_EMAIL_ID, '\n', \
+      'subj pref: ', SUBJECT_PREFIX, '\n', \
       'feed: ', FEED)
 
 
