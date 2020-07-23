@@ -1,0 +1,81 @@
+{
+    "list": [
+    {
+        "shortname": "ars",
+        "title": "Ars Technica",
+        "url": "http://feeds.arstechnica.com/arstechnica/index",
+        "email": "jon+Feeds.ars_pending@fineman.me",
+        "linktag": "link",
+	"description": "",
+        "datetag": "published_parsed",
+	"active": "yes"
+    },
+
+    {
+        "shortname": "hn",
+        "title": "Hacker News: front Page",
+        "url": "https://hnrss.org/frontpage",
+        "email": "jon+Feeds.hn_pending@fineman.me",
+        "linktag": "comments",
+	"description": "description",
+        "datetag": "published_parsed",
+	"active": "yes"
+    },
+
+    {
+        "shortname": "npr",
+        "title": "News: NPR",
+        "url": "http://www.npr.org/rss/rss.php?id=1001",
+        "email": "jon+Feeds.npr_pending@fineman.me",
+        "linktag": "link",
+	"description": "description",
+        "datetag": "published_parsed",
+	"active": "yes"
+    },
+
+    {
+        "shortname": "openbsd:OpenBSD",
+        "title": "OpenBSD",
+        "url": "https://www.reddit.com/r/openbsd/.rss",
+        "email": "jon+Feeds.openbsd_pending@fineman.me",
+        "linktag": "link",
+	"description": "",
+        "datetag": "updated_parsed",
+	"active": "yes"
+    },
+
+    {
+        "shortname": "ted",
+        "title": "TED",
+        "url": "https://pa.tedcdn.com/feeds/talks.rss",
+        "email": "jon+Feeds.ted_pending@fineman.me",
+        "linktag": "link",
+	"description": "",
+        "datetag": "published_parsed",
+	"active": "yes"
+    },
+
+    {
+        "shortname": "yt:ars",
+        "title": "ars",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCCDU1fsmgvWljcW2aodfJsA",
+        "email": "jon+Feeds.yt_pending@fineman.me",
+        "linktag": "link",
+	"description": "",
+        "datetag": "published_parsed",
+	"active": "yes"
+    },
+
+    {
+        "shortname": "indeed_python",
+        "title": "indeed python",
+        "url": "http://rss.indeed.com/rss?q=python&l=Flemington%2C+NJ",
+        "email": "jon+Feeds.job_search@fineman.me",
+        "linktag": "link",
+	"description": "description",
+        "datetag": "",
+	"active": "yes"
+    }
+
+    ]
+}
