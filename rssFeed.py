@@ -90,8 +90,12 @@ for rss in rssList['list']:
     req.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36')
     req.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8')
     req.add_header('Accept-Charset', 'ISO-8859-1,utf-8;q=0.7,*;q=0.3')
-    response = urllib.request.urlopen(req)
-    response_text = response.read().decode("utf-8")
+    try:
+        response = urllib.request.urlopen(req)
+        response_text = response.read().decode("utf-8")
+    except Exception as e:
+        print('could not read: ', rssName, e)
+        pass
     clean_rssURL = re.sub('<georss:point>[0-9.\- ]*</georss:point>', '', response_text)
     d = feedparser.parse(clean_rssURL)
     for story in d['entries']:
@@ -371,3 +375,7 @@ for rss in rssList['list']:
         fd.close()    
     #print(story_list)
     print('rssName: ', rssName, 'count: ', count, '\n')
+
+
+
+print('done')
