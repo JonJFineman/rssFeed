@@ -50,12 +50,12 @@ DEBUG_EMAIL_ID = conf.getItem(env, 'DEBUG_EMAIL_ID')
 REJECT_EMAIL_ID = conf.getItem(env, 'REJECT_EMAIL_ID')
 SUBJECT_PREFIX = conf.getItem(env, 'SUBJECT_PREFIX')
 FEED = conf.getItem(env, 'FEED')
-print('debug?: ', DEBUG, '\n', \
-      'email?: ', SEND_MAIL, '\n', \
-      'from email id: ', FROM_EMAIL_ID, '\n', \
-      'debug email id: ', DEBUG_EMAIL_ID, '\n', \
-      'reject id: ', REJECT_EMAIL_ID, '\n', \
-      'subj pref: ', SUBJECT_PREFIX, '\n', \
+print('debug?: ', DEBUG, '\n' \
+      'email?: ', SEND_MAIL, '\n' \
+      'from email id: ', FROM_EMAIL_ID, '\n' \
+      'debug email id: ', DEBUG_EMAIL_ID, '\n' \
+      'reject id: ', REJECT_EMAIL_ID, '\n' \
+      'subj pref: ', SUBJECT_PREFIX, '\n' \
       'feed: ', FEED)
 
 
@@ -245,6 +245,16 @@ for rss in rssList['list']:
                 messageBody += '<p>Summary:</p>'
                 messageBody += '<p>' + str(content_value) + '</p>'
 
+            if rssName == 'follow:outside':
+                custom = True
+                html = True
+                content = story['content']
+                content_value = content[0]['value']
+                messageBody  = '<p>Article link:</p>'
+                messageBody += '<p> <a href="' + str(link) + '">' + str(link) + '</a></p>'
+                messageBody += '<p>Summary:</p>'
+                messageBody += '<p>' + str(content_value) + '</p>'
+
             if 'yt' in rssName:
                 custom = True
                 html = True
@@ -357,7 +367,7 @@ for rss in rssList['list']:
             s = smtplib.SMTP('localhost')
             if SEND_MAIL:
                 s.sendmail(emailFrom, emailTo, msg.as_string())
-            s.close()
+            s.quit()
         except Exception as e:
             print(e)
             print(link, 'len text/html: ', len(messageText), len(messageHTML))
