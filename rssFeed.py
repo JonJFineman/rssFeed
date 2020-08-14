@@ -95,7 +95,7 @@ for rss in rssList['list']:
         response_text = response.read().decode("utf-8")
     except Exception as e:
         print('could not read: ', rssName, e)
-        pass
+        continue
     clean_rssURL = re.sub('<georss:point>[0-9.\- ]*</georss:point>', '', response_text)
     d = feedparser.parse(clean_rssURL)
     for story in d['entries']:
@@ -266,7 +266,7 @@ for rss in rssList['list']:
                 # @todo need to clean up html summary. just one blob of a link, no formating
         except Exception as e:
             print('error parsing : ', rssName, e)
-            pass
+            continue
         #summary = content_value
         soup = BeautifulSoup(content_value, features='html.parser')
         summary = soup.get_text('\n')
