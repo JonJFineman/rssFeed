@@ -124,10 +124,10 @@ for rss in rssList['list']:
             content = ''
             try:
                 content = story['summary_detail']
+                content_value = content['value']
             except Exception as e:
-                print('could not find: ', rssName, e)
+                print('could not find summary detail: ', rssName, e)
                 pass
-            content_value = content['value']
             messageBody += '<p>Article link:</p>'
             messageBody += '<p> <a href="' + str(link) + '">' + str(link) + '</a></p>'
             messageBody += '<p>Summary:</p>'
@@ -159,8 +159,12 @@ for rss in rssList['list']:
             if rssName == 'hn':
                 custom = True
                 html = True
-                content = story['summary_detail']
-                content_value = content['value']
+                try:
+                    content = story['summary_detail']
+                    content_value = content['value']
+                except Exception as e:
+                    print('could not find summary detail: ', rssName, e)
+                    pass
 
                 article_tag   = 'Article URL: <a href="'
                 article_tag_len = len(article_tag)
@@ -212,8 +216,12 @@ for rss in rssList['list']:
 
             if rssName == 'npr':
                 custom = True
-                content = story['summary_detail']
-                content_value = content['value']
+                try:
+                    content = story['summary_detail']
+                    content_value = content['value']
+                except Exception as e:
+                    print('could not find summary detail: ', rssName, e)
+                    pass
                 messageBody  = '<p>Article link:</p>'
                 messageBody += '<p> <a href="' + str(link) + '">' + str(link) + '</a></p>'
                 messageBody += '<p>Summary:</p>'
@@ -258,7 +266,11 @@ for rss in rssList['list']:
             if 'yt' in rssName:
                 custom = True
                 html = True
-                mediaURL = story['media_thumbnail'][0]['url']
+                try:
+                    mediaURL = story['media_thumbnail'][0]['url']
+                except Exception as e:
+                    print('could not find thumbnail : ', rssName, e)
+                    pass
                 messageBody  = '<p>Video link:</p>'
                 messageBody += '<p> <a href="' + str(link) + '">' + '<img src="' + str(mediaURL) + '"></p>'
                 messageBody += '<p>Summary:</p>'
