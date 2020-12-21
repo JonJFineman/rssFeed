@@ -1,6 +1,17 @@
 {
     "list": [
     {
+        "shortname": "lowtech",
+        "title": "low tech mag",
+        "url": "https://solar.lowtechmagazine.com/feeds/all.rss.xml",
+        "email": "jon+Feeds.rss_test_pending@fineman.me",
+        "linktag": "link",
+	"description": "description",
+        "datetag": "pubDate",
+	"active": "yes"
+    },
+
+    {
         "shortname": "ars",
         "title": "Ars Technica",
         "url": "http://feeds.arstechnica.com/arstechnica/index",
@@ -8,7 +19,18 @@
         "linktag": "link",
 	"description": "",
         "datetag": "published_parsed",
-	"active": "yes"
+	"active": "no"
+    },
+
+    {
+        "shortname": "lobster",
+        "title": "Lobster News",
+        "url": "https://lobste.rs/rss",
+        "email": "jon+Feeds.lobster_pending@fineman.me",
+        "linktag": "comments",
+	"description": "description",
+        "datetag": "published_parsed",
+	"active": "no"
     },
 
     {
@@ -19,7 +41,7 @@
         "linktag": "comments",
 	"description": "description",
         "datetag": "published_parsed",
-	"active": "yes"
+	"active": "no"
     },
 
     {
@@ -30,7 +52,7 @@
         "linktag": "link",
 	"description": "description",
         "datetag": "published_parsed",
-	"active": "yes"
+	"active": "no"
     },
 
     {
@@ -41,7 +63,7 @@
         "linktag": "link",
 	"description": "",
         "datetag": "updated_parsed",
-	"active": "yes"
+	"active": "no"
     },
 
     {
@@ -52,7 +74,7 @@
         "linktag": "link",
 	"description": "",
         "datetag": "published_parsed",
-	"active": "yes"
+	"active": "no"
     },
 
     {
@@ -63,7 +85,7 @@
         "linktag": "link",
 	"description": "",
         "datetag": "published_parsed",
-	"active": "yes"
+	"active": "no"
     },
 
     {
@@ -74,7 +96,7 @@
         "linktag": "link",
 	"description": "description",
         "datetag": "",
-	"active": "yes"
+	"active": "no"
     }
 
     ]
