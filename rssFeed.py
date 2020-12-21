@@ -167,16 +167,18 @@ for rss in rssList['list']:
                     pass
 
                 article_tag   = 'Article URL: <a href="'
-                article_tag_len = len(article_tag)
-                article_start = content_value.find(article_tag) + article_tag_len
-                article_stop  = content_value[article_start:].find('">') + article_start
-                article_url   = content_value[article_start:article_stop]
+                #article_tag_len = len(article_tag)
+                #article_start = content_value.find(article_tag) + article_tag_len
+                #article_stop  = content_value[article_start:].find('">') + article_start
+                #article_url   = content_value[article_start:article_stop]
+                article_url = story['link']
 
                 comment_tag   = 'Comments URL: <a href="'
-                comment_tag_len = len(comment_tag)
-                comment_start = content_value.find(comment_tag) + comment_tag_len
-                comment_stop  = content_value[comment_start:].find('">') + comment_start
-                comment_url   = content_value[comment_start:comment_stop]
+                #comment_tag_len = len(comment_tag)
+                #comment_start = content_value.find(comment_tag) + comment_tag_len
+                #comment_stop  = content_value[comment_start:].find('">') + comment_start
+                #comment_url   = content_value[comment_start:comment_stop]
+                comment_url = story['comments']
 
                 content_value  = '\nArticle: ' + article_url + '\n'
                 content_value += '\nComments: ' + comment_url + '\n\n'
@@ -210,6 +212,66 @@ for rss in rssList['list']:
                     print('hn comments found: ', i)
                 except Exception as e:
                     print('could not fetch hn comments: ', e)
+                    pass
+                messageBody += '<p>' + htmlComments + '</p>'
+                content_value += '\n\n' + textComments
+
+            if rssName == 'lobster':
+                custom = True
+                html = True
+                try:
+                    content = story['summary_detail']
+                    content_value = content['value']
+                except Exception as e:
+                    print('could not find summary detail: ', rssName, e)
+                    pass
+
+                article_tag   = 'Article URL: <a href="'
+                #article_tag_len = len(article_tag)
+                #article_start = content_value.find(article_tag) + article_tag_len
+                #article_stop  = content_value[article_start:].find('">') + article_start
+                #article_url   = content_value[article_start:article_stop]
+                article_url = story['link']
+
+                comment_tag   = 'Comments URL: <a href="'
+                #comment_tag_len = len(comment_tag)
+                #comment_start = content_value.find(comment_tag) + comment_tag_len
+                #comment_stop  = content_value[comment_start:].find('">') + comment_start
+                #comment_url   = content_value[comment_start:comment_stop]
+                comment_url = story['comments']
+
+                content_value  = '\nArticle: ' + article_url + '\n'
+                content_value += '\nComments: ' + comment_url + '\n\n'
+                messageBody  = '<p>Article link:</p>'
+                messageBody += '<p> <a href="' + str(article_url) + '">' + str(article_url) + '</a></p>'
+                messageBody += '<p>Comments link:</p>'
+                messageBody += '<p> <a href="' + str(comment_url) + '">' + str(comment_url) + '</a></p>'
+                htmlComments = ''
+                textComments = ''
+                try:
+                    req = urllib.request.Request(comment_url)
+                    req.add_header('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 Safari/537.36')
+                    req.add_header('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8')
+                    req.add_header('Accept-Charset', 'ISO-8859-1,utf-8;q=0.7,*;q=0.3')
+                    
+                    response = urllib.request.urlopen(req)
+                    response_text = response.read().decode("utf-8")
+                    soup = BeautifulSoup(response_text, 'html.parser')
+                    i = 0
+                    for comment in soup.find_all('div'):
+                        c = comment.get('class')
+                        if type(c) is list:
+                            if c[0] == 'comment_text' :
+                                htmlComments += '<p>Comment: ' + str(i) + ' ' + '</p>'
+                                htmlComments += '<p>' + str(comment.text) + '</p>'
+                                textComments += 'Comment: ' + str(i) + ' '
+                                textComments += str(comment.text) + '\n\n'
+                                i += 1
+                        if i >= 5:
+                            break
+                    print('lobster comments found: ', i)
+                except Exception as e:
+                    print('could not fetch lobster comments: ', e)
                     pass
                 messageBody += '<p>' + htmlComments + '</p>'
                 content_value += '\n\n' + textComments
