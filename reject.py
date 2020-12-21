@@ -5,6 +5,7 @@ import re
 
 subjects = [
         'Is Hiring', \
+        ' (YC ', \
         '3D'
         ]
 
