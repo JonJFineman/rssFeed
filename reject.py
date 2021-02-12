@@ -6,6 +6,7 @@ import re
 subjects = [
         'Is Hiring', \
         ' (YC ', \
+        '[PATCH', \
         '3D'
         ]
 
@@ -52,6 +53,9 @@ def main(argv):
 
     rc  = rejectSubject('hn', 'Printers')
     print('printer rc=',rc)
+
+    rc  = rejectSubject('', '[PATCH v3]')
+    print('patch rc=',rc)
 
     rc  = rejectBody('hn', 'xx')
     print('xx rc=',rc)
