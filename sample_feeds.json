@@ -6,6 +6,7 @@
         "url": "https://solar.lowtechmagazine.com/feeds/all.rss.xml",
         "email": "jon+Feeds.rss_test_pending@fineman.me",
         "linktag": "link",
+	"summary": "summary_detail",
 	"description": "description",
         "datetag": "pubDate",
 	"active": "yes"
@@ -17,6 +18,7 @@
         "url": "http://feeds.arstechnica.com/arstechnica/index",
         "email": "jon+Feeds.ars_pending@fineman.me",
         "linktag": "link",
+	"summary": "summary_detail",
 	"description": "",
         "datetag": "published_parsed",
 	"active": "no"
@@ -28,6 +30,7 @@
         "url": "https://lobste.rs/rss",
         "email": "jon+Feeds.lobster_pending@fineman.me",
         "linktag": "comments",
+	"summary": "summary_detail",
 	"description": "description",
         "datetag": "published_parsed",
 	"active": "no"
@@ -39,6 +42,7 @@
         "url": "https://hnrss.org/frontpage",
         "email": "jon+Feeds.hn_pending@fineman.me",
         "linktag": "comments",
+	"summary": "summary_detail",
 	"description": "description",
         "datetag": "published_parsed",
 	"active": "no"
@@ -50,6 +54,7 @@
         "url": "http://www.npr.org/rss/rss.php?id=1001",
         "email": "jon+Feeds.npr_pending@fineman.me",
         "linktag": "link",
+	"summary": "summary_detail",
 	"description": "description",
         "datetag": "published_parsed",
 	"active": "no"
@@ -61,6 +66,7 @@
         "url": "https://www.reddit.com/r/openbsd/.rss",
         "email": "jon+Feeds.openbsd_pending@fineman.me",
         "linktag": "link",
+	"summary": "",
 	"description": "",
         "datetag": "updated_parsed",
 	"active": "no"
@@ -72,6 +78,7 @@
         "url": "https://pa.tedcdn.com/feeds/talks.rss",
         "email": "jon+Feeds.ted_pending@fineman.me",
         "linktag": "link",
+	"summary": "summary_detail",
 	"description": "",
         "datetag": "published_parsed",
 	"active": "no"
@@ -83,6 +90,7 @@
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCCDU1fsmgvWljcW2aodfJsA",
         "email": "jon+Feeds.yt_pending@fineman.me",
         "linktag": "link",
+	"summary": "summary_detail",
 	"description": "",
         "datetag": "published_parsed",
 	"active": "no"
@@ -94,6 +102,7 @@
         "url": "http://rss.indeed.com/rss?q=python&l=Flemington%2C+NJ",
         "email": "jon+Feeds.job_search@fineman.me",
         "linktag": "link",
+	"summary": "summary_detail",
 	"description": "description",
         "datetag": "",
 	"active": "no"
