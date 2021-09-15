@@ -72,6 +72,7 @@ for rss in rssList['list']:
     rssURL = rss['url']
     rssName = rss['shortname']
     rssLink = rss['linktag']
+    rssSummary = rss['summary']
     rssDesc = rss['description']
     rssEmail = rss['email']
 
@@ -124,21 +125,20 @@ for rss in rssList['list']:
             # other feeds
             content = ''
             description = ''
-            try:
-                content = story['summary_detail']
-                content_value = content['value']
-                print('summary: ', content_value[25])
-            except Exception as e:
-                print('could not find summary detail: ', rssName, e)
-                pass
-            try:
-                description = story[rssDesc]
-                description_value = content['value']
-                description_value = str(description_value)[0:512]
-                print('descr: ', description_value[25])
-            except Exception as e:
-                print('could not find description: ', rssName, e)
-                pass
+            if rssSummary != "":
+                try:
+                    content = story[rssSummary]
+                    content_value = content['value']
+                except Exception as e:
+                    print('could not find summary detail: ', rssName, e)
+                    pass
+            if rssDesc != "":
+                try:
+                    description = story[rssDesc]
+                    description_value = str(description)[0:512]
+                except Exception as e:
+                    print('could not find description: ', rssName, e)
+                    pass
             messageBody += '<p>Article link:</p>'
             messageBody += '<p> <a href="' + str(link) + '">' + str(link) + '</a></p>'
             messageBody += '<p>Summary:</p>'
@@ -338,7 +338,7 @@ for rss in rssList['list']:
                 messageBody += '<p>Summary:</p>'
                 messageBody += '<p>' + str(content_value) + '</p>'
 
-            if 'yt' in rssName:
+            if 'yt:' in rssName:
                 custom = True
                 html = True
                 try:
