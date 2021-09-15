@@ -115,6 +115,7 @@ for rss in rssList['list']:
 
         summary = ''
         content_value = ''
+        description_value = ''
         mediaURL = ''
         messageBody = ''
         custom = False
@@ -122,16 +123,28 @@ for rss in rssList['list']:
         try:
             # other feeds
             content = ''
+            description = ''
             try:
                 content = story['summary_detail']
                 content_value = content['value']
+                print('summary: ', content_value[25])
             except Exception as e:
                 print('could not find summary detail: ', rssName, e)
+                pass
+            try:
+                description = story[rssDesc]
+                description_value = content['value']
+                description_value = str(description_value)[0:512]
+                print('descr: ', description_value[25])
+            except Exception as e:
+                print('could not find description: ', rssName, e)
                 pass
             messageBody += '<p>Article link:</p>'
             messageBody += '<p> <a href="' + str(link) + '">' + str(link) + '</a></p>'
             messageBody += '<p>Summary:</p>'
             messageBody += '<p>' + str(content_value) + '</p>'
+            messageBody += '<p>Description:</p>'
+            messageBody += '<p>' + str(description_value) + '</p>'
 
             if rssName == 'ars':
                 custom = True
@@ -158,7 +171,7 @@ for rss in rssList['list']:
 
             if rssName == 'hn':
                 custom = True
-                html = True
+                html = False
                 try:
                     content = story['summary_detail']
                     content_value = content['value']
@@ -218,7 +231,7 @@ for rss in rssList['list']:
 
             if rssName == 'lobster':
                 custom = True
-                html = True
+                html = False
                 try:
                     content = story['summary_detail']
                     content_value = content['value']
